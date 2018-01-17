@@ -1,5 +1,6 @@
 package net.tijos.aliyun;
 
+import java.io.IOException;
 import java.util.Formatter;
 
 import tijos.framework.net.mqtt.MqttClient;
@@ -23,8 +24,7 @@ public class Main {
 	private static final String TOPIC = "/" + PRODUCT_KEY + "/" + DEVICE_NAME + "/message";
 	
 
-	public static void main(String[] args) {
-		//启动WLAN及DNS
+	public static void main(String[] args) throws IOException {
 		TiWLAN.getInstance().startup(10000);
 		TiDNS.getInstance().startup();
 				
@@ -42,7 +42,6 @@ public class Main {
         System.err.println(USER_PASS);
         
         
-        //允许自动重新连接
         connOpts.setAutomaticReconnect(true);
         
         MqttClient mqttClient = new MqttClient(BROKER, CLIENT_ID);
@@ -89,8 +88,8 @@ public class Main {
 				
 			}
 		});
-		//连接MQTT服务器
-        try {
+
+		try {
 			mqttClient.connect(connOpts, mqttClient);
 		} catch (Exception e) {
 			e.printStackTrace();
