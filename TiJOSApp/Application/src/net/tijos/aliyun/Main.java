@@ -3,11 +3,11 @@ package net.tijos.aliyun;
 import java.io.IOException;
 import java.util.Formatter;
 
-import tijos.framework.net.mqtt.MqttClient;
-import tijos.framework.net.mqtt.MqttClientListener;
-import tijos.framework.net.mqtt.MqttConnectOptions;
 import tijos.framework.networkcenter.TiDNS;
 import tijos.framework.networkcenter.TiWLAN;
+import tijos.framework.networkcenter.mqtt.MqttClient;
+import tijos.framework.networkcenter.mqtt.MqttClientListener;
+import tijos.framework.networkcenter.mqtt.MqttConnectOptions;
 
 
 public class Main {
